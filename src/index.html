@@ -28,18 +28,18 @@
 				</div>
 			</div>
 
-			<div class="messanger__chat">
-				<div class="messanger__message message-messanger respondent-message">
+			<ul class="messanger__chat" id="chat">
+				<!-- <li class="messanger__message message-messanger bot-message">
 					<div class="message-messanger__info">
 						<span class="message-messanger__author">Eric</span>
 						<span class="message-messanger__date">16:03</span>
 					</div>
-					<div class="message-messanger__content">
-						This article explains the :not(:last-child):after selector.
+					<div class="message-messanger__content content">
+						<span class="content__text">This article explains the :not(:last-child):after selector.</span>
 					</div>
-				</div>
+				</li>
 
-				<div class="messanger__message message-messanger user-message">
+				<li class="messanger__message message-messanger user-message">
 					<div class="message-messanger__info">
 						<span class="message-messanger__author">Konstantin</span>
 						<span class="message-messanger__date">16:05</span>
@@ -50,12 +50,13 @@
 						the last element or basically to that element which cannot be selected directly. There comes the
 						use of pseudo selectors.
 					</div>
-				</div>
-			</div>
+				</li> -->
+			</ul>
 
 			<div class="messanger__composer">
 				<button type="button" class="messanger__add-file messanger-btn" id="add-file-btn"></button>
-				<form class="messanger__message-form message-form">
+				<input type="file" class="messanger__add-file-input hidden" id="add-file-input">
+				<form class="messanger__message-form message-form" id="message-form">
 					<textarea type="text" id="type-message" class="message-form__input"
 						placeholder="Введите сообщение"></textarea>
 					<button class="message-form__btn messanger-btn" id="send-message-btn"></button>

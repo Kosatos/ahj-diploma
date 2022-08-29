@@ -171,7 +171,7 @@ body {
   }
 }
 .messanger {
-  max-width: 840px;
+  max-width: 1100px;
   margin: 100px auto;
   padding: 25px;
   background-color: rgba(0, 0, 0, 0.25);
@@ -240,7 +240,7 @@ body {
   background-image: url(../img/icons/favorite.svg);
 }
 .messanger__chat {
-  height: 440px;
+  height: 500px;
   margin-top: 40px;
   padding: 20px 0;
   display: -webkit-box;
@@ -250,9 +250,20 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.3) rgba(255, 255, 255, 0.1);
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.3);
+}
+.messanger__chat::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.messanger__chat::-webkit-scrollbar-thumb {
+  width: 7px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .messanger__message {
   max-width: 60%;
@@ -273,16 +284,16 @@ body {
   background-color: rgba(255, 184, 78, 0.4);
   border-radius: 15px 0 15px 15px;
 }
-.messanger__message.respondent-message {
+.messanger__message.bot-message {
   -ms-flex-item-align: start;
       align-self: flex-start;
 }
-.messanger__message.respondent-message .message-messanger__info {
+.messanger__message.bot-message .message-messanger__info {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
 }
-.messanger__message.respondent-message .message-messanger__content {
+.messanger__message.bot-message .message-messanger__content {
   background-color: rgba(184, 247, 255, 0.4);
   border-radius: 0 15px 15px;
 }
@@ -293,9 +304,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
   gap: 10px;
 }
 .messanger__add-file {
@@ -415,16 +426,19 @@ body {
 }
 .message-messanger__content {
   margin-top: 5px;
-  padding: 10px;
+  padding: 15px;
   line-height: 1.1em;
 }
 
 .message-form__input {
   display: block;
   width: 100%;
-  padding: 10px 50px 10px 10px;
+  height: 50px;
+  padding: 15px 50px 15px 15px;
   border-radius: 15px;
   resize: none;
+  overflow: hidden;
+  font-size: inherit;
 }
 .message-form__btn {
   width: 40px;
@@ -434,4 +448,10 @@ body {
   bottom: 5px;
   background-image: url(../img/icons/send.svg);
   background-size: 25px;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
