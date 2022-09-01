@@ -1,3 +1,5 @@
+import textfilter from '../utils/textfilter';
+
 export default class Message {
   constructor(data) {
     this.usertype = data.usertype;
@@ -39,7 +41,7 @@ export default class Message {
       case 'text':
         const textEl = document.createElement('span');
         textEl.className = 'content__text';
-        textEl.textContent = this.content;
+        textEl.innerHTML = textfilter(this.content);
         return textEl;
       case 'video':
         return;
@@ -47,8 +49,11 @@ export default class Message {
         return;
       case 'location':
         return;
-      case 'file':
-        return;
+      case 'image':
+        const imgEl = document.createElement('img');
+        imgEl.className = 'content__text';
+        imgEl.src = this.content;
+        return imgEl;
       default:
         return;
     }

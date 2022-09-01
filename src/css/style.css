@@ -170,6 +170,30 @@ body {
     width: 100%;
   }
 }
+.droparea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 125;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 28px;
+  line-height: 1.2em;
+}
+
 .messanger {
   max-width: 1100px;
   margin: 100px auto;
@@ -181,6 +205,7 @@ body {
 }
 .messanger__header {
   width: 100%;
+  height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,6 +225,7 @@ body {
   width: 100%;
   height: 2px;
   background-color: #fff;
+  border-radius: 15px;
   position: absolute;
   bottom: -30px;
   left: 50%;
@@ -254,6 +280,7 @@ body {
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 .messanger__chat::-webkit-scrollbar {
   width: 7px;
@@ -337,6 +364,13 @@ body {
 }
 .messanger__rec-video {
   background-image: url(../img/icons/videocam.svg);
+}
+
+.content__text a {
+  color: #67bbff;
+}
+.content__text a:hover {
+  text-decoration: underline;
 }
 
 @-webkit-keyframes openSearch {
@@ -450,7 +484,194 @@ body {
   background-size: 25px;
 }
 
-.hidden {
+@-webkit-keyframes showing {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes showing {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+.add-file-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  -webkit-animation: showing 0.3s linear;
+          animation: showing 0.3s linear;
+}
+.add-file-popup__overlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.add-file-popup__body {
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  position: relative;
+}
+.add-file-popup__files {
+  margin-bottom: 20px;
+}
+.add-file-popup__file {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+}
+.add-file-popup__file:not(:last-child) {
+  margin-bottom: 10px;
+}
+.add-file-popup__controllers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-column-gap: 100px;
+     -moz-column-gap: 100px;
+          column-gap: 100px;
+}
+.add-file-popup.removing {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.2s ease, -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease, opacity 0.2s ease;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  transition: transform 0.3s ease, opacity 0.2s ease, -webkit-transform 0.3s ease;
+}
+.add-file-popup__droparea {
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #000;
+  font-size: 24px;
+}
+
+.file__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+}
+.file__icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-image: "../img/icons/file.svg";
+}
+.file__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 5px;
+}
+.file__title {
+  font-size: 16px;
+  color: #000;
+}
+.file__size {
+  font-size: 14px;
+  color: #888;
+}
+.file__delete-btn {
+  background-image: url("../img/icons/delete.svg");
+}
+
+.controllers__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.popup-btn {
+  width: 100px;
+  height: 40px;
+  background-color: #000;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.popup-btn:hover {
+  background-color: #fff;
+  color: #000;
+  border: solid 1px #000;
+}
+
+.removing {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
+  transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
+  -o-transition: transform 0.3s linear, opacity 0.3s linear;
+  transition: transform 0.3s linear, opacity 0.3s linear;
+  transition: transform 0.3s linear, opacity 0.3s linear, -webkit-transform 0.3s linear;
+}
+
+.null {
   display: none;
   opacity: 0;
   visibility: hidden;

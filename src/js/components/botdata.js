@@ -85,7 +85,7 @@ const botdata = {
   games: [
     'Dota 2',
     'The Witcher 3',
-    '2K22',
+    '2k22',
     'Grand Theft Auto V',
     'God of War',
     'Elden Ring',

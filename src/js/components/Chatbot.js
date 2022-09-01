@@ -82,7 +82,6 @@ export default class Chatbot {
   greet() {
     const message = {
       usertype: 'bot',
-      botname: this.botname,
       type: 'text',
       content: this.description,
     };
