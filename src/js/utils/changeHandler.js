@@ -6,14 +6,6 @@ export default function changeHandler(event, popup, eventName = 'change') {
 
   const files = Array.from(data.files);
   files.forEach((file) => {
-    console.log(file);
-    if (
-      !file.type.match('image') &&
-      !file.type.match('audio') &&
-      !file.type.match('video')
-    ) {
-      return;
-    }
 
     const reader = new FileReader();
 

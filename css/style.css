@@ -27,7 +27,6 @@
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -179,17 +178,10 @@ body {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   font-size: 28px;
   line-height: 1.2em;
 }
@@ -243,18 +235,11 @@ svg rect {
 .messanger__header {
   width: 100%;
   height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 40px;
-     -moz-column-gap: 40px;
-          column-gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
   position: relative;
 }
 .messanger__header::after {
@@ -266,9 +251,7 @@ svg rect {
   position: absolute;
   bottom: -30px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   -webkit-animation: line 1s linear forwards;
           animation: line 1s linear forwards;
 }
@@ -279,23 +262,14 @@ svg rect {
   letter-spacing: 0.1em;
 }
 .messanger__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-  -webkit-column-gap: 20px;
-     -moz-column-gap: 20px;
-          column-gap: 20px;
+  justify-content: end;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 .messanger__search {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  justify-content: end;
   width: 320px;
   position: relative;
 }
@@ -314,13 +288,8 @@ svg rect {
   width: 100%;
   height: 500px;
   padding: 20px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -342,19 +311,10 @@ svg rect {
   left: 0;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   row-gap: 20px;
 }
 .messanger__no-search img {
@@ -372,26 +332,20 @@ svg rect {
   margin-bottom: 20px;
 }
 .messanger__message.user-message {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 .messanger__message.user-message .message-messanger__info {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  justify-content: end;
 }
 .messanger__message.user-message .message-messanger__content {
   background-color: rgba(255, 184, 78, 0.4);
   border-radius: 15px 0 15px 15px;
 }
 .messanger__message.bot-message {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 .messanger__message.bot-message .message-messanger__info {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  justify-content: start;
 }
 .messanger__message.bot-message .message-messanger__content {
   background-color: rgba(184, 247, 255, 0.4);
@@ -400,29 +354,17 @@ svg rect {
 .messanger__message.bot-message .message-messanger__controllers {
   left: auto;
   right: -40px;
-  -webkit-transform: translateX(-15px);
-      -ms-transform: translateX(-15px);
-          transform: translateX(-15px);
+  transform: translateX(-15px);
 }
 .messanger__message:hover .message-messanger__controllers {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   opacity: 1;
-  -webkit-transform: translateX(0);
-      -ms-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
 }
 .messanger__composer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  justify-content: space-between;
+  align-items: end;
   gap: 10px;
 }
 .messanger__add-file {
@@ -430,18 +372,12 @@ svg rect {
   background-image: url(../img/icons/add_file.svg);
 }
 .messanger__message-form {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   position: relative;
 }
 .messanger__composer-btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   gap: 5px;
   width: 165px;
 }
@@ -459,31 +395,19 @@ svg rect {
   background-image: url(../img/icons/videocam.svg);
 }
 .messanger__record-media {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 .messanger__pinned {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px 20px 20px 50px;
   margin-bottom: 10px;
+  position: -webkit-sticky;
   position: sticky;
   top: -20px;
   left: 0;
@@ -498,23 +422,14 @@ svg rect {
   background-color: rgb(184, 247, 255);
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   left: 25px;
 }
 
 .pinned-message__info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   row-gap: 10px;
   color: #000;
 }
@@ -535,8 +450,6 @@ svg rect {
   background-repeat: no-repeat;
   background-size: 35px;
   background-position: center;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 .messanger-btn:hover {
@@ -550,25 +463,15 @@ svg rect {
   text-decoration: underline;
 }
 .content__media {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 5px;
 }
 .content__images {
   max-width: 500px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
+  flex-wrap: wrap;
+  align-items: start;
   border-radius: 15px;
 }
 .content__image {
@@ -642,24 +545,16 @@ svg rect {
   text-decoration: underline;
 }
 .content__file {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 5px;
-     -moz-column-gap: 5px;
-          column-gap: 5px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  align-items: center;
 }
 .content__file img {
   width: 50px;
   height: 50px;
   -o-object-fit: contain;
      object-fit: contain;
-}
-.content__file .content__download-btn {
-  position: static;
 }
 .content__file:hover .content__download-btn {
   opacity: 1;
@@ -696,19 +591,11 @@ svg rect {
   -webkit-animation: openSearch 0.5s linear 2s forwards;
           animation: openSearch 0.5s linear 2s forwards;
 }
-.search-messanger__input::-webkit-input-placeholder {
-  font-size: 14px;
-  color: rgb(100, 100, 100);
-}
 .search-messanger__input::-moz-placeholder {
   font-size: 14px;
   color: rgb(100, 100, 100);
 }
 .search-messanger__input:-ms-input-placeholder {
-  font-size: 14px;
-  color: rgb(100, 100, 100);
-}
-.search-messanger__input::-ms-input-placeholder {
   font-size: 14px;
   color: rgb(100, 100, 100);
 }
@@ -727,12 +614,9 @@ svg rect {
   position: relative;
 }
 .message-messanger__info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 5px;
-     -moz-column-gap: 5px;
-          column-gap: 5px;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
   font-family: "Rubik", sans-serif;
   font-size: 14px;
   color: rgb(100, 100, 100);
@@ -745,24 +629,13 @@ svg rect {
 .message-messanger__controllers {
   display: none;
   opacity: 0;
-  -webkit-transform: translateX(15px);
-      -ms-transform: translateX(15px);
-          transform: translateX(15px);
+  transform: translateX(15px);
   position: absolute;
   left: -40px;
   bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-transition: opacity 0.4s ease 0.3s, -webkit-transform 0.4s ease 0.1s;
-  transition: opacity 0.4s ease 0.3s, -webkit-transform 0.4s ease 0.1s;
-  -o-transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.1s;
+  flex-direction: column;
   transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.1s;
-  transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.1s, -webkit-transform 0.4s ease 0.1s;
 }
 
 .message-controllers__favorite {
@@ -770,8 +643,6 @@ svg rect {
   height: 30px;
   background-color: transparent;
   background-image: url(../img/icons/favorite_border.svg);
-  -webkit-transition: background-image 0.4s ease;
-  -o-transition: background-image 0.4s ease;
   transition: background-image 0.4s ease;
   background-size: 20px 20px;
 }
@@ -838,38 +709,31 @@ svg rect {
   z-index: 500;
   top: 150px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   width: 640px;
   height: 480px;
   border-radius: 15px;
-  -webkit-box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.75);
-          box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.75);
 }
 
 @-webkit-keyframes showing {
   0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 0;
   }
   100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 }
 
 @keyframes showing {
   0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 0;
   }
   100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 }
@@ -885,15 +749,9 @@ svg rect {
           animation: showing 0.3s linear;
 }
 .add-file-popup__overlay {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -909,43 +767,25 @@ svg rect {
   margin-bottom: 20px;
 }
 .add-file-popup__file {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 20px;
-     -moz-column-gap: 20px;
-          column-gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 .add-file-popup__file:not(:last-child) {
   margin-bottom: 10px;
 }
 .add-file-popup__controllers {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-column-gap: 100px;
-     -moz-column-gap: 100px;
-          column-gap: 100px;
+  justify-content: space-between;
+  -moz-column-gap: 100px;
+       column-gap: 100px;
 }
 .add-file-popup.removing {
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
   opacity: 0;
-  -webkit-transition: opacity 0.2s ease, -webkit-transform 0.3s ease;
-  transition: opacity 0.2s ease, -webkit-transform 0.3s ease;
-  -o-transition: transform 0.3s ease, opacity 0.2s ease;
   transition: transform 0.3s ease, opacity 0.2s ease;
-  transition: transform 0.3s ease, opacity 0.2s ease, -webkit-transform 0.3s ease;
 }
 .add-file-popup__droparea {
   background-color: rgba(255, 255, 255, 0.75);
@@ -954,15 +794,10 @@ svg rect {
 }
 
 .file__left {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 .file__icon {
   width: 50px;
@@ -973,13 +808,8 @@ svg rect {
   background-image: "../img/icons/file.svg";
 }
 .file__info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 5px;
 }
 .file__title {
@@ -995,12 +825,9 @@ svg rect {
 }
 
 .controllers__right {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 
 .popup-btn {
@@ -1012,8 +839,6 @@ svg rect {
   color: #fff;
   font-size: 16px;
   text-transform: uppercase;
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
   cursor: pointer;
 }
@@ -1024,15 +849,9 @@ svg rect {
 }
 
 .removing {
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
   opacity: 0;
-  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
-  transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
-  -o-transition: transform 0.3s linear, opacity 0.3s linear;
   transition: transform 0.3s linear, opacity 0.3s linear;
-  transition: transform 0.3s linear, opacity 0.3s linear, -webkit-transform 0.3s linear;
 }
 
 .null {

@@ -80,8 +80,34 @@ body {
   line-height: 1.2em;
 }
 
+.loader {
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+svg path,
+svg rect {
+  fill: #ff6700;
+}
+
+@keyframes showControllers {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 50px;
+  }
+}
+
 .messanger {
-  max-width: 1100px;
+  width: 100%;
   margin: 100px auto;
   padding: 25px;
   background-color: rgb(0, 0, 0, 0.25);
@@ -133,12 +159,22 @@ body {
   }
 
   &__favorites-btn {
-    background-image: url(../img/icons/favorite.svg);
+    background-image: url(../img/icons/favorite_border.svg);
+
+    &.showed {
+      background-image: url(../img/icons/favorite.svg);
+    }
+  }
+
+  &__chat-container {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
   }
 
   &__chat {
+    width: 100%;
     height: 500px;
-    margin-top: 40px;
     padding: 20px 0;
     display: flex;
     flex-direction: column;
@@ -146,7 +182,6 @@ body {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: rgb(255, 255, 255, 0.2) rgb(0, 0, 0, 0.3);
-    position: relative;
 
     &::-webkit-scrollbar {
       width: 7px;
@@ -158,6 +193,29 @@ body {
       width: 7px;
       border-radius: 3px;
       background-color: rgb(255, 255, 255, 0.1);
+    }
+  }
+
+  &__no-search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+
+    img {
+      width: 300px;
+    }
+
+    span {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
     }
   }
 
@@ -191,6 +249,20 @@ body {
         background-color: rgb(184, 247, 255, 0.4);
         border-radius: 0 15px 15px;
       }
+
+      .message-messanger__controllers {
+        left: auto;
+        right: -40px;
+        transform: translateX(-15px);
+      }
+    }
+
+    &:hover {
+      .message-messanger__controllers {
+        display: flex;
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
   }
 
@@ -216,6 +288,10 @@ body {
     justify-content: space-between;
     gap: 5px;
     width: 165px;
+
+    &.show {
+      animation: showControllers 0.75s ease forwards;
+    }
   }
 
   &__send-geo {
@@ -229,7 +305,80 @@ body {
   &__rec-video {
     background-image: url(../img/icons/videocam.svg);
   }
+
+  &__record-media {
+    display: flex;
+    column-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__pinned {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 20px 50px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: -20px;
+    left: 0;
+    z-index: 15;
+    background-color: #fff;
+    border-radius: 15px;
+
+    &:before {
+      content: "";
+      height: 60px;
+      width: 5px;
+      background-color: rgb(184, 247, 255);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 25px;
+    }
+  }
 }
+
+// pinned message
+
+.pinned-message {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 10px;
+    color: #000;
+  }
+
+  &__title {
+    color: rgb(0, 225, 255);
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__close {
+    background-image: url(../img/icons/clear.svg);
+  }
+}
+
+// btn
+
+.messanger-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255, 0.8);
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: center;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: rgb(184, 247, 255);
+  }
+}
+
+// message content
 
 .content {
   &__text {
@@ -238,6 +387,131 @@ body {
 
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+
+  &__media {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__images {
+    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    border-radius: 15px;
+  }
+
+  &__image {
+    width: 50%;
+    padding: 2px;
+    position: relative;
+
+    &:nth-child(3n + 1) {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      background-color: rgb(255, 255, 255, 0.5);
+    }
+
+    &:hover {
+      .content__download-btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__video {
+    width: 100%;
+    position: relative;
+    video {
+      border-radius: 15px;
+      width: 100%;
+    }
+    .content__download-btn {
+      top: 5px;
+    }
+    &:hover {
+      .content__download-btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__audio {
+    width: 100%;
+    position: relative;
+    padding-right: 55px;
+    audio {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 5px;
+    }
+
+    .content__download-btn {
+      bottom: 0;
+      right: 0;
+    }
+
+    &:hover {
+      .content__download-btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__audio-name {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  &__download-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-image: url(../img/icons/download.svg);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  &__location {
+    a {
+      font-family: "Rubik", sans-serif;
+      color: #67bbff;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__file {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .content__download-btn {
+      position: static;
+    }
+
+    &:hover {
+      .content__download-btn {
+        opacity: 1;
       }
     }
   }
@@ -280,24 +554,10 @@ body {
   }
 }
 
-.messanger-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 15px;
-  background-color: rgb(255, 255, 255, 0.8);
-  background-repeat: no-repeat;
-  background-size: 35px;
-  background-position: center;
-  transition: background-color 0.4s ease;
-
-  &:hover {
-    background-color: rgb(184, 247, 255);
-  }
-}
-
 // message
 
 .message-messanger {
+  position: relative;
   &__info {
     display: flex;
     column-gap: 5px;
@@ -313,6 +573,48 @@ body {
     margin-top: 5px;
     padding: 15px;
     line-height: 1.1em;
+  }
+
+  &__controllers {
+    display: none;
+    opacity: 0;
+    transform: translateX(15px);
+    position: absolute;
+    left: -40px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.1s;
+  }
+}
+
+.message-controllers {
+  &__favorite {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    background-image: url(../img/icons/favorite_border.svg);
+    transition: background-image 0.4s ease;
+    background-size: 20px 20px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.added {
+      background-image: url(../img/icons/favorite.svg);
+    }
+  }
+  &__pin {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    background-image: url(../img/icons/pin.svg);
+    background-size: 20px 20px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   }
 }
 
@@ -340,6 +642,43 @@ body {
     background-image: url(../img/icons/send.svg);
     background-size: 25px;
   }
+}
+
+// media record controllers
+
+.record-media {
+  &__clear {
+    background-image: url("../img/icons/clear.svg");
+    width: 40px;
+    height: 40px;
+    background-size: 25px;
+  }
+  &__send {
+    background-image: url("../img/icons/send.svg");
+    width: 40px;
+    height: 40px;
+    background-size: 25px;
+  }
+  &__timer {
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+  }
+
+  &.show {
+    animation: showControllers 0.75s ease forwards;
+  }
+}
+
+.video-preview {
+  position: absolute;
+  z-index: 500;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 480px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.75);
 }
 
 // add file popup

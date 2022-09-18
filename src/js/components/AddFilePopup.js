@@ -3,11 +3,13 @@ import element from '../utils/element';
 import changeHandler from '../utils/changeHandler';
 import dragndropAddListeners from '../utils/dragndrop';
 import icons from './icons';
+import createMessageBody from '../utils/createMessageBody';
+import { chat, loader } from './constants';
 
 export default class AddFilePopup {
   constructor(server) {
     this.server = server;
-    this.content = null;
+    this.content = [];
   }
 
   render() {
@@ -59,12 +61,10 @@ export default class AddFilePopup {
     this.sendBtn = element('button', 'controllers__send-btn popup-btn', 'send');
     this.controllersRight.appendChild(this.sendBtn);
     this.sendBtn.addEventListener('click', () => {
-      const message = {
-        usertype: 'person',
-        type: 'image',
-        content: this.content,
-      };
-      this.server.send(JSON.stringify(message));
+      const message = createMessageBody('person', this.content);
+      this.server.send(message);
+      chat.appendChild(loader.render());
+      this.content = [];
       this.removeEl(this.popup);
     });
 
@@ -77,6 +77,7 @@ export default class AddFilePopup {
 
   addFile(file, src) {
     if (!this.popupFiles) return;
+    console.log(file);
 
     const fileEl = element('div', 'add-file-popup__file file');
     const fileLeft = element('div', 'file__left');
@@ -104,7 +105,11 @@ export default class AddFilePopup {
     });
 
     this.popupFiles.appendChild(fileEl);
-    this.content = src;
+    this.content.push({
+      type: file.type.split('/')[0],
+      body: src,
+      filename: file.name,
+    });
   }
 
   async removeEl(el) {
