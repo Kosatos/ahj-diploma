@@ -102,6 +102,9 @@ window.onload = () => {
           });
         });
       } else if (data.pinMessage) {
+        if(document.querySelector('.pinned-message')) {
+          document.querySelector('.pinned-message').remove();
+        }
         chat.insertAdjacentElement(
           'afterbegin',
           createPinned(data.message, ws)
