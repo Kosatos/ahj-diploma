@@ -29,7 +29,8 @@ import {
 window.onload = () => {
   [...document.forms].forEach((form) => form.reset());
 
-  const ws = new WebSocket('ws://localhost:8080');
+  const ws = new WebSocket('wss://young-plains-19005.herokuapp.com/ws');
+  console.log(ws)
   let allLoaded = false;
 
   ws.onopen = () => {
