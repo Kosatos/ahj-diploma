@@ -2,6 +2,8 @@ import textfilter from '../utils/textfilter';
 import element from '../utils/element';
 import icons from './icons';
 
+// класс для обработки входящих с сервера сообщений по содержимому контенту, взаимодействие с закреплением и добавлением в избранное
+
 export default class Message {
   constructor(data, server) {
     this.server = server;

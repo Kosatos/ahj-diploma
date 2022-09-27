@@ -1,5 +1,7 @@
 import element from '../utils/element';
 
+// спиннер загрузки при загрузке файлов
+
 export default class Loader {
   render() {
     this.loaderEl = element('div', 'loader');

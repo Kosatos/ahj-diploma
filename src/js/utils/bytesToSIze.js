@@ -1,3 +1,5 @@
+// конвертирование размера файла
+
 export default function bytesToSize(bytes) {
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
   if (!bytes) {

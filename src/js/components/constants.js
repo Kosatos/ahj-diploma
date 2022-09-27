@@ -1,3 +1,5 @@
+// объявление необходимых констант
+
 import Loader from './Loader';
 const messageForm = document.getElementById('message-form'),
   typeMessageInput = document.getElementById('type-message'),

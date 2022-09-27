@@ -10,6 +10,8 @@ import {
 import element from '../utils/element';
 import createMessageBody from '../utils/createMessageBody';
 
+// запись аудио- и видеосообщений и отправка их на сервер
+
 export default class AudioVideoRecorder {
   constructor(server) {
     this.server = server;

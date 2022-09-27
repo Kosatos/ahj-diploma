@@ -1,5 +1,7 @@
 import createMessageBody from './createMessageBody';
 
+// получение координат геопозиции и отправка тела сообщения на сервер
+
 export default function getPosition(server) {
   function getCoords(position) {
     server.send(

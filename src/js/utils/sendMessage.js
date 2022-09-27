@@ -1,5 +1,7 @@
 import resize from './resize';
 
+// отправка сообщения боту
+
 export default function sendMessage(server, messageBody, bot, form, input) {
   server.send(messageBody);
   const messageToBot = JSON.parse(messageBody).content.find(

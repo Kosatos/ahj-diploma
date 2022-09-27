@@ -6,6 +6,8 @@ import icons from './icons';
 import createMessageBody from '../utils/createMessageBody';
 import { chat, loader } from './constants';
 
+// popup для добавления и отправки файлов на сервер
+
 export default class AddFilePopup {
   constructor(server) {
     this.server = server;

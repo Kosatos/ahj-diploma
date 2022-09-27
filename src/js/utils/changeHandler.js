@@ -1,3 +1,5 @@
+// обработчик события добавления файлов
+
 export default function changeHandler(event, popup, eventName = 'change') {
   const data = eventName === 'drop' ? event.dataTransfer : event.target;
   if (!data.files.length) {

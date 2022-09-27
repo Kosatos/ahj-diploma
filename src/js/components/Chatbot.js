@@ -1,5 +1,7 @@
 import createMessageBody from '../utils/createMessageBody';
 
+// класс для обработки ботом входящих команд
+
 export default class Chatbot {
   constructor(botname, data, server) {
     this.botname = botname;

@@ -1,5 +1,7 @@
 import changeHandler from './changeHandler';
 
+// обработка событий движения мыши в области добавления файла
+
 export default function dragndropAddListeners(target, popup) {
   target.addEventListener('dragover', (event) => {
     event.preventDefault();

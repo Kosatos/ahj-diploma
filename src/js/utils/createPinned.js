@@ -1,3 +1,5 @@
+// инициализирует отображение закрепленного сообщения
+
 import element from './element';
 export default function createPinned(message, server) {
   const pinnedEl = element('div', 'messanger__pinned pinned-message');
